@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import TextInput from './TextInput'
 
 export default class Todo extends Component {
-  state = {
-    editing: false
+  constructor(props) {
+    super(props);
+    this.state = { editing: false };
+    this.handleToggleTodo = this.handleToggleTodo.bind(this);
   }
 
   handleDoubleClick = () => {
@@ -18,14 +20,15 @@ export default class Todo extends Component {
       
     } else{
         this.props.todoItemEdit(id,text)
-      }  
+      }        
       this.setState({
         editing : false
       })
   }
 
   handleToggleTodo = (id) =>{
-    this.props.toggleTodo(0)
+    // console.log("Todo Item handleToggleTodo id is ",id)
+    this.props.toggleTodo(id)
   }
   
 
@@ -38,7 +41,7 @@ export default class Todo extends Component {
     else {
       element =
         <div>
-          <input type="checkbox" checked={todo.completed} onClick={this.handleToggleTodo(todo.id)} />
+          <input type="checkbox" checked={todo.completed} onChange={this.handleToggleTodo(todo.id)} />
           <lable onDoubleClick={this.handleDoubleClick} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
             {todo.text}
           </lable>
