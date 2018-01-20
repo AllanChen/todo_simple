@@ -42,11 +42,15 @@ export default class Todo extends Component {
       
       element =
         <Segment  onDoubleClick={this.handleDoubleClick}>
-          <div className="ui checkbox">
-            <input type="checkbox" class="hidden" readonly="" tabindex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id)} />
-            <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text} <Time value={Date.now()} format="YYYY-MM-DD H:m:s" /> </label>
-            
+          <div className="ui checkbox" style={{"float":"left"}}>
+            <input type="checkbox" class="hidden" readonly="" tabindex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id)} />          
+            <label></label>
           </div>
+          <div>
+            <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text}</label>
+            <label style={{ 'float':'right'}}>{todo.date}</label>
+            <Header as='h6' >{todo.date}</Header>
+            </div>
         </Segment>
 
     }
