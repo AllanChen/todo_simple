@@ -5224,6 +5224,10 @@ react-scripts@1.0.12:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-time@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-time/-/react-time-4.3.0.tgz#b37507b8b5278f03a8e7f2bfe70911824a8991dd"
+
 "react@^15 || ^16", react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"

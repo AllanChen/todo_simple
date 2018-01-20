@@ -25,17 +25,8 @@ export default class TextInput extends Component{
 
     render(){        
         return (
-            // <input 
-            // type="text" 
-            // placeholder="WTF" 
-            // value = {this.state.text}
-            // onChange = {this.handleChange}
-            // onBlur = {this.handleBlur}
-            // onKeyDown = {this.handleSubmit}
-            // />
-
-            <Input focus 
-            placeholder="WTF"
+            <Input focus fluid
+            placeholder = "Add a to-do in HERE"
             value = {this.state.text}
             onChange = {this.handleChange}
             onBlur = {this.handleBlur}
