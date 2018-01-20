@@ -6,27 +6,11 @@ export const addTodo = (text) => ({
   text
 })
 
-export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
-
 export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id
 })
 
-export const setShowEditArea = (editArea,id,state) =>({
-  type: 'SHOW_EDITAREA',
-  editArea,
-  id
-})
-
-export const setHideEditArea = (editArea,id) =>({
-  type: 'HIDE_EDITAREA',
-  editArea,
-  id
-})
 
 export const todoItemEdit = (id,text) =>({
   type:'EDITITEM_TODO',
@@ -44,3 +28,12 @@ export const setMid = (id) =>({
   type: 'SET_SHOW_MID',
   id
 })
+
+export const setAreAllMark =(filter) =>({  
+ type: filter
+})
+
+export const setAllUNMark =() =>({
+ type:'UNCOMPLETE'
+})
+

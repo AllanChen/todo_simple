@@ -9,11 +9,11 @@ const Footer = () =>(
       All
     </FilterLink>
     {", "}
-    <FilterLink filter = "SHOW_ACTIVE">
+    <FilterLink filter = "UNCOMPLETE">
       Active
     </FilterLink>
     {", "}
-    <FilterLink filter = "SHOW_COMPLETED">
+    <FilterLink filter = "COMPLETE_ALL">
       Completed
     </FilterLink>
   </p>

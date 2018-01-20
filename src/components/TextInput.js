@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
+import { Input } from 'semantic-ui-react'
 export default class TextInput extends Component{
     
     state = {
@@ -24,14 +25,22 @@ export default class TextInput extends Component{
 
     render(){        
         return (
-            <input 
-            type="text" 
-            placeholder="WTF" 
+            // <input 
+            // type="text" 
+            // placeholder="WTF" 
+            // value = {this.state.text}
+            // onChange = {this.handleChange}
+            // onBlur = {this.handleBlur}
+            // onKeyDown = {this.handleSubmit}
+            // />
+
+            <Input focus 
+            placeholder="WTF"
             value = {this.state.text}
             onChange = {this.handleChange}
             onBlur = {this.handleBlur}
             onKeyDown = {this.handleSubmit}
-            />
+             />
         )        
     }
 }

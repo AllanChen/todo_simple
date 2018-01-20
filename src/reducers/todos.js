@@ -12,10 +12,11 @@ const todos = (state = [], action) => {
 
     case 'TOGGLE_TODO':
       return state.map(todo =>
-        (todo.id === action.id)
-          ? { ...todo, completed: !todo.completed }
+        todo.id === action.id ?
+         { ...todo, completed: !todo.completed }
           : todo
       )
+      
 
     case 'SHOW_EDITAREA':
       return state.map(todo =>
@@ -42,6 +43,16 @@ const todos = (state = [], action) => {
         todo.id !== action.id
       )
       
+    case 'COMPLETE_ALL':    
+    const areAllMarked = state.every(todo => todo.completed)
+    return state.map(todo =>({
+      ...todo,
+      completed: !areAllMarked
+    }))
+
+    case 'UNCOMPLETE':
+      return state.filter(todo => todo.completed === false)
+    //return state.filter(todo => todo.completed === false)
 
     default:
       return state

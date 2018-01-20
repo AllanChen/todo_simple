@@ -6,16 +6,17 @@ import { bindActionCreators } from 'redux'
 import AddTodo from './containers/AddTodo'
 import TodoList from './components/TodoList'
 import Footer from './components/Footer'
-
+import { Container} from 'semantic-ui-react'
 const MainApp = ({todos, actions}) => (
-  <div>
+  <Container text>
+
     <AddTodo />
     <TodoList
       todos = {todos}
       actions = {actions}
     />
     <Footer />
-  </div>
+  </Container>
 )
 
 MainApp.Prototype = {
