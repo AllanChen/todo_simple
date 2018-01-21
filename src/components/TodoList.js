@@ -8,7 +8,7 @@ export default class TodoList extends Component {
   render() {
     const { todos, actions } = this.props;
     return (
-      <Segment.Group raised>
+      <div>
         {todos.map(todo =>
           <Todo
             key={todo.id}
@@ -16,8 +16,7 @@ export default class TodoList extends Component {
             {...actions}
           />
         )}
-
-      </Segment.Group>
+      </div>
     )
   }
 }

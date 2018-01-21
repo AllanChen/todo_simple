@@ -18,6 +18,7 @@ let AddTodo = ({ dispatch }) => {
 
         <div className="ui input fluid">
           <input type="text"
+            autoFocus = "autoFocus"
             placeholder="Add a to-do in here"
             ref={node => {
               input = node

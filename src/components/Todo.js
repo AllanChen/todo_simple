@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TextInput from './TextInput'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Divider } from 'semantic-ui-react'
 import Time from 'react-time-format'
 
 export default class Todo extends Component {
@@ -39,16 +39,16 @@ export default class Todo extends Component {
       element = <TextInput onSave={(inputText) => this.handleSave(todo.id, inputText)} text={todo.text} />
     }
     else {
-      
-      element =
-        <Segment  onDoubleClick={this.handleDoubleClick}>
-          <div className="ui checkbox">
-            <input type="checkbox" class="hidden" readonly="" tabindex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id)} />
-            <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text} <Time value={Date.now()} format="YYYY-MM-DD H:m:s" /> </label>
-            
-          </div>
-        </Segment>
 
+      element =
+        <div className="p_todo_item">
+          <Segment onDoubleClick={this.handleDoubleClick}>
+            <div className="ui checkbox">
+              <input type="checkbox" class="hidden" readonly="" tabindex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id)} />
+              <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text} {todo.date}</label>
+            </div>
+          </Segment>          
+        </div>
     }
     return (
       <div>
