@@ -1,0 +1,24 @@
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
+import { Segment,Header,Checkbox } from 'semantic-ui-react'
+export default class Compeleted extends Component {
+    render() {
+        const { compeleteTodo } = this.props
+        return (
+            <div>
+                { <Segment>
+                    <div class="ui checkbox">
+                        <input type="checkbox" className="hidden" readonly="" tabIndex="0" checked={compeleteTodo.completed} />
+                        <label style={{ textDecoration: compeleteTodo.completed ? 'line-through' : 'none', "fontSize": "20px", "paddingLeft": "10px" }}>{compeleteTodo.text}</label>
+                    </div>
+                    <p style={{ "color": "#d4d4d5", "paddingTop": "6px" }}>{compeleteTodo.date}</p>
+                </Segment> }
+                
+            </div>
+        )
+    }
+}
+Compeleted.propTypes = {
+    compeleteTodo: PropTypes.object.isRequired,
+    actions : PropTypes.object.isRequired
+}

@@ -2,9 +2,10 @@ let nextTodoId = 0
 
 export const addTodo = (text) => ({
   type: 'ADD_TODO',
-  id: nextTodoId ++,
+
+  id: nextTodoId++,
   text,
-  date: new Date().toISOString().slice(0, 20)
+  date: new Date().toISOString().slice(0, 19)
 })
 
 export const toggleTodo = (id) => ({
@@ -13,28 +14,23 @@ export const toggleTodo = (id) => ({
 })
 
 
-export const todoItemEdit = (id,text) =>({
-  type:'EDITITEM_TODO',
+export const todoItemEdit = (id, text) => ({
+  type: 'EDITITEM_TODO',
   id,
   text
 })
 
-export const deletItem = (id) =>(
+export const deletItem = (id) => (
   {
-    type:'DELETE_TODO_ITEM',
+    type: 'DELETE_TODO_ITEM',
     id
   })
 
-export const setMid = (id) =>({
-  type: 'SET_SHOW_MID',
-  id
+export const completed = (filter) => ({
+  type: 'COMPLETED'
 })
 
-export const setAreAllMark =(filter) =>({  
- type: filter
-})
-
-export const setAllUNMark =() =>({
- type:'UNCOMPLETE'
+export const activeItem = () => ({
+  type: 'ACTIVE'
 })
 

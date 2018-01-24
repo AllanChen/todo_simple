@@ -1,33 +1,22 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Button } from 'semantic-ui-react'
-import FilterLink from '../containers/FilterLink'
-import FooterContainer from '../containers/FooterContainer'
+import React from 'react'
 import PropTypes from 'prop-types'
-export default class Footer extends Component {
-  render() {
-    return (
-      <p>
-        Show:
-        
-        {/* <FilterLink filter="SHOW_ALL"> */}
-        <Button basic> All</Button>          
-        
-        {/* <FilterLink filter="UNCOMPLETE">
-          Active
-    </FilterLink> */}
-    {/* <Button basic onClick = {dispatch(setAreAllMark)}>Active</Button>           */}
-        
-        {/* <FilterLink filter="COMPLETE_ALL">
-          Completed
-    </FilterLink> */}    
-    <FooterContainer>
-    {/* <Button basic onClick = {this.props.setAreAllMark()}>Completed</Button>           */}
-    </FooterContainer>
-      </p>
-    )
-  }
+import { Button } from 'semantic-ui-react'
+
+const Footer = ({showAll,active, completed}) => (
+  <p style={{"margin-top":"10px"}}>
+
+    <Button basic color='teal' onClick ={()=> showAll()} >All</Button>
+
+    <Button basic color='teal' onClick ={()=> active()} >Active</Button>
+
+    <Button basic color='teal' onClick ={() => completed()} >Completed</Button>
+  </p>
+)
+
+Footer.propTypes ={  
+  showAll: PropTypes.func.isRequired,
+  active: PropTypes.func.isRequired,
+  completed: PropTypes.func.isRequired  
 }
-Footer.protoType = {
-  actions : PropTypes.object.isRequired
-}
+export default Footer
+

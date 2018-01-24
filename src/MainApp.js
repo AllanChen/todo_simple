@@ -6,19 +6,20 @@ import { bindActionCreators } from 'redux'
 import AddTodo from './containers/AddTodo'
 import FooterContainer from './containers/FooterContainer'
 import TodoList from './components/TodoList'
-import THeader from './components/THeader'
-import Footer from './components/Footer'
-import { Container} from 'semantic-ui-react'
+import FooterContainer from './containers/FooterContainer'
+import TodosContainer from './containers/TodosContainer'
+import CompeletedContainer  from './containers/CompeletedContainer'
+import { Container,Divider} from 'semantic-ui-react'
+
 const MainApp = ({todos, actions}) => (
   <Container text>
     <THeader />
     <AddTodo />
-    <TodoList
-      todos = {todos}
-      actions = {actions}
-    />
-    <Footer actions = {actions}/>
-    {/* <FooterContainer actions = {actions} /> */}
+    <TodosContainer />
+    <p> </p>
+    <Divider horizontal>Compeleted</Divider>
+    <CompeletedContainer  />
+    <FooterContainer />
   </Container>
 )
 
