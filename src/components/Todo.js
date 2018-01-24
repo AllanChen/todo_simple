@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TextInput from './TextInput'
-import { Segment } from 'semantic-ui-react'
-import Time from 'react-time-format'
+import { Segment, Header, Checkbox } from 'semantic-ui-react'
+import Label from 'semantic-ui-react/dist/commonjs/elements/Label/Label';
 
 export default class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = { editing: false };
+    this.audio = new Audio("ding.mp3");
   }
 
   handleDoubleClick = () => {
@@ -27,30 +28,35 @@ export default class Todo extends Component {
     })
   }
 
-  handleToggleTodo = (id) => {
+  handleToggleTodo = (id, todo) => {
     this.props.toggleTodo(id)
+    if (!todo.completed)
+      this.audio.play()
   }
 
 
   render() {
     let element;
-    const { onClick, todo } = this.props;
+    const { onClick, todo, toggleTodo } = this.props;
     if (this.state.editing) {
       element = <TextInput onSave={(inputText) => this.handleSave(todo.id, inputText)} text={todo.text} />
     }
     else {
-      
+
       element =
-        <Segment  onDoubleClick={this.handleDoubleClick}>
-          <div className="ui checkbox" style={{"float":"left"}}>
-            <input type="checkbox" class="hidden" readonly="" tabindex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id)} />          
-            <label></label>
+        <Segment onDoubleClick={this.handleDoubleClick} style={{ "margin-top": "10px" }}>
+          <div class="ui checkbox">
+            {/* <input type="checkbox" className="hidden" readonly="" tabIndex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id,todo)} />                       */}
+            <input type="checkbox"
+              className="hidden"
+              readonly="" 
+              tabIndex="0" 
+              checked={todo.completed} 
+              onChange={() => toggleTodo(todo.id)} />
+
+            <label style={{ textDecoration: todo.completed ? 'line-through' : 'none', "fontSize": "20px", "paddingLeft": "10px" }}>{todo.text}</label>
           </div>
-          <div>
-            <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text}</label>
-            <label style={{ 'float':'right'}}>{todo.date}</label>
-            <Header as='h6' >{todo.date}</Header>
-            </div>
+          <p style={{ "color": "#d4d4d5", "paddingTop": "6px" }}>{todo.date}</p>
         </Segment>
 
     }
@@ -63,9 +69,11 @@ export default class Todo extends Component {
 }
 
 Todo.propTypes = {
+  toggleTodo: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   todo: PropTypes.object.isRequired,
   todoItemEdit: PropTypes.func.isRequired
+
 }
 
 
