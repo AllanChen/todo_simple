@@ -52,7 +52,7 @@ export default class Todo extends Component {
               readonly="" 
               tabIndex="0" 
               checked={todo.completed} 
-              onChange={() => toggleTodo(todo.id)} />
+              onChange={() => .toggleTodo(todo.id)} />
 
             <label style={{ textDecoration: todo.completed ? 'line-through' : 'none', "fontSize": "20px", "paddingLeft": "10px" }}>{todo.text}</label>
           </div>
