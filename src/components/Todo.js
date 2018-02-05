@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TextInput from './TextInput'
-import { Segment, Header, Checkbox } from 'semantic-ui-react'
-import Label from 'semantic-ui-react/dist/commonjs/elements/Label/Label';
+import Time from 'react-time-format'
+import {Divider,Label, Segment, Header, Checkbox } from 'semantic-ui-react'
 
 export default class Todo extends Component {
   constructor(props) {
@@ -29,15 +29,16 @@ export default class Todo extends Component {
   }
 
   handleToggleTodo = (id, todo) => {
-    this.props.toggleTodo(id)
+    this.props.toggleTodo(id)    
     if (!todo.completed)
       this.audio.play()
   }
 
+  
 
   render() {
     let element;
-    const { onClick, todo, toggleTodo } = this.props;
+    const { onClick, todo, toggleTodo, actions } = this.props;
     if (this.state.editing) {
       element = <TextInput onSave={(inputText) => this.handleSave(todo.id, inputText)} text={todo.text} />
     }
@@ -46,19 +47,17 @@ export default class Todo extends Component {
       element =
         <Segment onDoubleClick={this.handleDoubleClick} style={{ "margin-top": "10px" }}>
           <div class="ui checkbox">
-            {/* <input type="checkbox" className="hidden" readonly="" tabIndex="0" checked={todo.completed} onChange={() => this.handleToggleTodo(todo.id,todo)} />                       */}
             <input type="checkbox"
               className="hidden"
               readonly="" 
               tabIndex="0" 
               checked={todo.completed} 
-              onChange={() => .toggleTodo(todo.id)} />
+              onChange = {() => this.handleToggleTodo(todo.id, todo)} />
 
             <label style={{ textDecoration: todo.completed ? 'line-through' : 'none', "fontSize": "20px", "paddingLeft": "10px" }}>{todo.text}</label>
           </div>
           <p style={{ "color": "#d4d4d5", "paddingTop": "6px" }}>{todo.date}</p>
-        </Segment>
-
+        </Segment>      
     }
     return (
       <div>
@@ -73,7 +72,6 @@ Todo.propTypes = {
   onClick: PropTypes.func,
   todo: PropTypes.object.isRequired,
   todoItemEdit: PropTypes.func.isRequired
-
 }
 
 

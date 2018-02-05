@@ -3,15 +3,17 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as TodoActions from './actions'
 import { bindActionCreators } from 'redux'
+import THeader from './components/THeader'
 import AddTodo from './containers/AddTodo'
 import TodoList from './components/TodoList'
-import FooterContainer from './containers/FooterContainer'
 import TodosContainer from './containers/TodosContainer'
+import FooterContainer from './containers/FooterContainer'
 import CompeletedContainer  from './containers/CompeletedContainer'
 import { Container,Divider} from 'semantic-ui-react'
+
 const MainApp = ({todos, actions}) => (
   <Container text>
-
+    <THeader />
     <AddTodo />
     <TodosContainer />
     <p> </p>

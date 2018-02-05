@@ -19,3 +19,4 @@ Footer.propTypes ={
   completed: PropTypes.func.isRequired  
 }
 export default Footer
+

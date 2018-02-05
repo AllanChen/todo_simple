@@ -44,8 +44,14 @@ const todos = (state = [], action) => {
         todo.id !== action.id
       )
 
-    case 'ACTIVE':
-      //return state.filter(todo => todo.completed === false)
+    case 'ACTIVEITEM':
+      return state.map(todo =>
+        todo.id === action.id ? 
+          {...todo, completed: !todo.completed}
+          :todo
+      )
+    
+    case 'ACTIVEALL':
       return state.map(todo =>({
         ...todo,
         completed: false

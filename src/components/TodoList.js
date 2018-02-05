@@ -4,7 +4,7 @@ import Todo from './Todo'
 
 export default class TodoList extends Component {
   render() {    
-    const { todos, actions } = this.props;
+    const { todos, actions } = this.props; 
     return (
       <div>
         {          
@@ -12,10 +12,10 @@ export default class TodoList extends Component {
           <Todo
             key={todo.id}
             todo={todo}
-            {...actions}
+            toggleTodo = {this.props.toggleTodo}
+            todoItemEdit = {this.props.todoItemEdit}
           />
         )}
-
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import Footer from "../components/Footer"
-import { completed, activeItem } from '../actions'
+import { completed, activeAll } from '../actions'
 const mapStateToProps = () => ({
 
 })
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     },
     
     active: id => {        
-        dispatch(activeItem())
+        dispatch(activeAll())
     },
 
     completed: id => {
@@ -25,3 +25,4 @@ const FooterContainer = connect(
     mapDispatchToProps
 )(Footer)
 export default FooterContainer
+

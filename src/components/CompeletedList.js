@@ -9,10 +9,9 @@ export default class CompeletedList extends Component {
                 {compeletedTodoList.map( compeleted => <Compeleted
                     key = {compeletedTodoList.id}
                     compeleteTodo = {compeleted}
-                    {...actions}
+                    activeItem = {this.props.activeItem}
                  />                    
-                )}
-                
+                )}                
             </div>
         )
     }
