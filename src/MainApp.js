@@ -8,17 +8,34 @@ import AddTodo from './containers/AddTodo'
 import TodoList from './components/TodoList'
 import TodosContainer from './containers/TodosContainer'
 import FooterContainer from './containers/FooterContainer'
-import CompeletedContainer  from './containers/CompeletedContainer'
-import { Container,Divider} from 'semantic-ui-react'
+import CompeletedContainer from './containers/CompeletedContainer'
+import { Container, Divider,Button } from 'semantic-ui-react'
+import { slide as Menu } from 'react-burger-menu'
 
-const MainApp = ({todos, actions}) => (
+var isMenuOpen = function(state) {
+  return state.isOpen;
+};
+
+const MainApp = ({ todos, actions }) => (
   <Container text>
+  
+    <Menu onStateChange={ isMenuOpen } width={ '40%' }>
+    {/* <a id="Normal" className="menu-item" href="/">Normal</a>
+    <a id="Private" className="menu-item" href="/">Private</a>
+    <a id="Wepet" className="menu-item" href="/">Wepet</a> */}
+    <Button.Group vertical>
+    <Button>Normal</Button>
+    <Button>Private</Button>
+    <Button>Wepet</Button>
+  </Button.Group>
+    </Menu>
+
     <THeader />
     <AddTodo />
     <TodosContainer />
     <p> </p>
     <Divider horizontal>Compeleted</Divider>
-    <CompeletedContainer  />
+    <CompeletedContainer />
     <FooterContainer />
   </Container>
 )

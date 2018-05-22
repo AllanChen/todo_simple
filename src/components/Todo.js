@@ -34,6 +34,11 @@ export default class Todo extends Component {
       this.audio.play()
   }
 
+  handleShowTheMenu = (id) =>{
+    this.setState({
+      isOpen: true
+    })
+  }
   
 
   render() {
@@ -46,6 +51,7 @@ export default class Todo extends Component {
 
       element =
         <Segment onDoubleClick={this.handleDoubleClick} style={{ "margin-top": "10px" }}>
+        {/* // <Segment onClick={this.handleShowTheMenu(todo.id)} style={{ "margin-top": "10px" }}> */}
           <div class="ui checkbox">
             <input type="checkbox"
               className="hidden"
@@ -61,7 +67,7 @@ export default class Todo extends Component {
     }
     return (
       <div>
-        {element}
+        {element}      
       </div>
     )
   }
